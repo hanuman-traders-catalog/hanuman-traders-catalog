@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hanuman Traders — Wholesale Garment Catalog</title>
+<meta name="description" content="Hanuman Traders — Wholesale garment shop catalog by Rajdhari Gupta. Browse Men, Women, Kids & Other collections." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0a0a0a',
+        },
+        fontFamily: {
+          serifd: ['Playfair Display', 'Georgia', 'serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-white text-ink antialiased">
+
+  <header class="site-header sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <button id="mobileMenuBtn" class="md:hidden -ml-1 p-2" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+
+        <nav class="hidden md:flex items-center gap-7">
+          <a href="#catalog" data-category-link="MEN" class="nav-link">Men</a>
+          <a href="#catalog" data-category-link="WOMEN" class="nav-link">Women</a>
+          <a href="#catalog" data-category-link="KIDS" class="nav-link">Kids</a>
+          <a href="#catalog" data-category-link="OTHERS" class="nav-link">Others</a>
+        </nav>
+
+        <a href="#top" class="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
+          <h1 class="font-serifd brand-name text-xl md:text-[1.7rem] tracking-wide whitespace-nowrap">HANUMAN TRADERS</h1>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-7">
+          <a href="#catalog" class="nav-link active" data-category-link="ALL">Catalog</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <span class="md:hidden w-9"></span>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobileMenu" class="fixed inset-0 bg-white z-50 hidden flex-col">
+    <div class="flex items-center justify-between px-5 h-20 border-b border-neutral-200">
+      <h2 class="font-serifd text-lg">HANUMAN TRADERS</h2>
+      <button id="mobileMenuClose" class="p-2" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col px-5 py-8 gap-7">
+      <a href="#catalog" data-category-link="ALL" class="text-lg uppercase tracking-wide">Catalog</a>
+      <a href="#catalog" data-category-link="MEN" class="text-lg uppercase tracking-wide">Men</a>
+      <a href="#catalog" data-category-link="WOMEN" class="text-lg uppercase tracking-wide">Women</a>
+      <a href="#catalog" data-category-link="KIDS" class="text-lg uppercase tracking-wide">Kids</a>
+      <a href="#catalog" data-category-link="OTHERS" class="text-lg uppercase tracking-wide">Other Items</a>
+      <a href="#about" class="text-lg uppercase tracking-wide">About</a>
+      <a href="#contact" class="text-lg uppercase tracking-wide">Contact</a>
+    </nav>
+  </div>
+
+  <section id="top" class="pt-16 md:pt-20 pb-4 px-5 md:px-8 text-center">
+    <h2 class="section-heading font-serifd text-3xl md:text-5xl tracking-wide">
+      SHOP BY CATEGORY
+      <span class="accent-line"></span>
+    </h2>
+    <p class="text-neutral-500 mt-5 max-w-xl mx-auto text-sm md:text-base">
+      Premium wholesale garments for every customer — explore our complete collections.
+    </p>
+  </section>
+
+  <section class="px-5 md:px-8 pb-20 pt-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <a href="#catalog" data-category-link="MEN" class="category-tile fade-up relative block overflow-hidden group">
+        <div class="aspect-[4/5] bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=1200&auto=format&fit=crop" alt="Men's Collection" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+        </div>
+        <span class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-8 py-3 text-sm tracking-widest uppercase font-semibold">Men</span>
+      </a>
+      
+      <a href="#catalog" data-category-link="WOMEN" class="category-tile fade-up relative block overflow-hidden group">
+        <div class="aspect-[4/5] bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?q=80&w=1200&auto=format&fit=crop" alt="Women's Collection" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+        </div>
+        <span class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-8 py-3 text-sm tracking-widest uppercase font-semibold">Women</span>
+      </a>
+      
+      <a href="#catalog" data-category-link="KIDS" class="category-tile fade-up relative block overflow-hidden group">
+        <div class="aspect-[4/5] bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1622290319146-7b63df48a635?q=80&w=800&auto=format&fit=crop" alt="Kids' Collection" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+        </div>
+        <span class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-8 py-3 text-sm tracking-widest uppercase font-semibold">Kids</span>
+      </a>
+
+      <a href="#catalog" data-category-link="OTHERS" class="category-tile fade-up relative block overflow-hidden group">
+        <div class="aspect-[4/5] bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?q=80&w=1200&auto=format&fit=crop" alt="Other Items" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+        </div>
+        <span class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-6 py-3 text-sm tracking-widest uppercase font-semibold whitespace-nowrap">Others</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="catalog" class="px-5 md:px-8 pb-24 pt-6 border-t border-neutral-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="section-heading font-serifd text-3xl md:text-4xl tracking-wide">
+          OUR CATALOG
+          <span class="accent-line"></span>
+        </h2>
+      </div>
+
+      <div class="flex items-center justify-start md:justify-center gap-7 md:gap-10 border-b border-neutral-200 pb-5 mb-10 overflow-x-auto whitespace-nowrap px-2">
+        <span class="filter-chip cursor-pointer text-neutral-400 hover:text-ink transition font-medium tracking-wide uppercase text-sm" data-category="ALL" style="color: #0a0a0a; border-bottom: 2px solid #0a0a0a;">All</span>
+        <span class="filter-chip cursor-pointer text-neutral-400 hover:text-ink transition font-medium tracking-wide uppercase text-sm" data-category="MEN">Men</span>
+        <span class="filter-chip cursor-pointer text-neutral-400 hover:text-ink transition font-medium tracking-wide uppercase text-sm" data-category="WOMEN">Women</span>
+        <span class="filter-chip cursor-pointer text-neutral-400 hover:text-ink transition font-medium tracking-wide uppercase text-sm" data-category="KIDS">Kids</span>
+        <span class="filter-chip cursor-pointer text-neutral-400 hover:text-ink transition font-medium tracking-wide uppercase text-sm" data-category="OTHERS">Others</span>
+      </div>
+
+      <div id="productGrid" class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+        <p class="text-neutral-500 col-span-full text-center py-10">Loading catalog...</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="px-5 md:px-8 py-20 bg-neutral-50 border-t border-neutral-100">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="section-heading font-serifd text-3xl md:text-4xl tracking-wide">
+        ABOUT US
+        <span class="accent-line"></span>
+      </h2>
+      <p class="text-neutral-600 mt-6 leading-relaxed text-sm md:text-base">
+        Hanuman Traders is a trusted wholesale garment supplier, proudly owned and operated by
+        <strong class="text-ink">Rajdhari Gupta</strong>. For years, we have served retailers and customers
+        with a carefully curated range of Men's, Women's, Kids' clothing, and Accessories — combining quality fabric,
+        fair wholesale pricing, and reliable service. This catalog is a digital showcase of our current
+        collection; visit our shop in person to explore the full range and make a purchase.
+      </p>
+    </div>
+  </section>
+
+  <footer id="contact" class="bg-ink text-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div>
+        <h3 class="font-serifd text-2xl mb-4">HANUMAN TRADERS</h3>
+        <p class="text-sm text-neutral-400 leading-relaxed">
+          Wholesale garment shop owned by Rajdhari Gupta. Quality clothing for Men, Women & Kids.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 tracking-wider uppercase text-sm">Contact</h4>
+        <ul class="text-sm space-y-2 text-neutral-400">
+          <li><a href="tel:+919721396431" class="hover:text-white transition">+91 9721396431</a></li>
+          <li><a href="mailto:hanuman.traders.work@gmail.com" class="hover:text-white transition">hanuman.traders.work@gmail.com</a></li>
+          <li class="pt-2">Owner: Rajdhari Gupta</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 tracking-wider uppercase text-sm">Visit Our Shop</h4>
+        <address class="text-sm text-neutral-400 not-italic leading-relaxed">
+          Hanuman Traders<br />
+          Fazilnagar, Kushinagar<br />
+          Uttar Pradesh<br />
+          India
+        </address>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 tracking-wider uppercase text-sm">Find Us</h4>
+        <div class="w-full h-48 rounded-md overflow-hidden bg-neutral-800">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3564.976924586936!2d84.04166507400903!3d26.681220470003222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399397f051a687a3%3A0x1993568a3cf14de4!2sHanuman%20Traders!5e0!3m2!1sen!2sin!4v1782660607713!5m2!1sen!2sin" 
+            class="w-full h-full border-0" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-neutral-500">
+        <p>© 2026 Hanuman Traders. All rights reserved.</p>
+        <p>Display catalog only — visit our shop to purchase.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="productModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 md:p-8" style="background:rgba(10,10,10,0.7);">
+    <div class="bg-white max-w-4xl w-full max-h-[90vh] overflow-hidden relative flex flex-col" id="productModalInner">
+      <button id="productModalClose" class="absolute top-4 right-4 z-10 bg-white shadow-md hover:bg-neutral-100 rounded-full p-2" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div id="productModalBody" class="flex-1 overflow-y-auto p-6 md:p-10"></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+    });
+    
+    mobileMenuClose.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+    });
+  </script>
+</body>
+</html>

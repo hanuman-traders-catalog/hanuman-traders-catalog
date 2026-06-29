@@ -1,0 +1,381 @@
+/* ==========================================================================
+   HANUMAN TRADERS — Custom Aesthetic Layer (on top of Tailwind CDN)
+   Minimal black & white, elegant serif headings, refined hover states.
+   ========================================================================== */
+
+:root {
+  --ht-black: #0a0a0a;
+  --ht-charcoal: #1a1a1a;
+  --ht-gray-900: #171717;
+  --ht-gray-600: #525252;
+  --ht-gray-400: #a3a3a3;
+  --ht-gray-200: #e5e5e5;
+  --ht-gray-100: #f2f2f2;
+  --ht-white: #ffffff;
+  --ht-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--ht-black);
+  background: var(--ht-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-serif-display {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+}
+
+/* ---- Letterspaced nav / labels ---- */
+.tracked {
+  letter-spacing: 0.14em;
+}
+.tracked-sm {
+  letter-spacing: 0.08em;
+}
+
+/* ---- Header ---- */
+.site-header {
+  border-bottom: 1px solid var(--ht-gray-200);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+.brand-name {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.nav-link {
+  position: relative;
+  color: var(--ht-gray-600);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.25s var(--ht-ease);
+  padding-bottom: 4px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0%;
+  background: var(--ht-black);
+  transition: width 0.3s var(--ht-ease);
+}
+.nav-link:hover {
+  color: var(--ht-black);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+.nav-link.active {
+  color: var(--ht-black);
+}
+
+/* ---- Section heading w/ underline accent ---- */
+.section-heading {
+  position: relative;
+  display: inline-block;
+}
+.section-heading .accent-line {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--ht-black);
+  margin: 18px auto 0;
+}
+
+/* ---- Category Tiles ---- */
+.category-tile {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  aspect-ratio: 3 / 4;
+  background: var(--ht-gray-100);
+  cursor: pointer;
+}
+.category-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ht-ease), filter 0.7s var(--ht-ease);
+  display: block;
+}
+.category-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.0) 55%);
+  opacity: 0.45;
+  transition: opacity 0.5s var(--ht-ease);
+  z-index: 1;
+}
+.category-tile:hover::before {
+  opacity: 0.7;
+}
+.category-tile:hover img {
+  transform: scale(1.06);
+}
+.category-tile .tile-label {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 14px 38px;
+  border: 1px solid rgba(255,255,255,0.85);
+  background: rgba(20,20,20,0.35);
+  backdrop-filter: blur(2px);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: background 0.35s var(--ht-ease), letter-spacing 0.35s var(--ht-ease);
+  white-space: nowrap;
+}
+.category-tile:hover .tile-label {
+  background: rgba(10,10,10,0.55);
+  letter-spacing: 0.22em;
+}
+
+/* ---- Product Card ---- */
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.product-card .image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--ht-gray-100);
+}
+.product-card .image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ht-ease);
+}
+.product-card:hover .image-wrap img {
+  transform: scale(1.045);
+}
+.product-card .badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--ht-black);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+.product-card .quick-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  justify-content: center;
+  padding: 14px 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s var(--ht-ease), transform 0.35s var(--ht-ease);
+}
+.product-card:hover .quick-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+.btn-view-details {
+  background: #fff;
+  color: var(--ht-black);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border: 1px solid #fff;
+  transition: background 0.3s var(--ht-ease), color 0.3s var(--ht-ease);
+}
+.btn-view-details:hover {
+  background: transparent;
+  color: #fff;
+}
+
+.product-card .meta {
+  padding-top: 14px;
+}
+.product-card .product-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ht-black);
+}
+.product-card .product-price {
+  font-size: 0.9rem;
+  color: var(--ht-gray-600);
+  margin-top: 2px;
+}
+.product-card .swatch-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  align-items: center;
+}
+.swatch {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+.size-pill {
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: var(--ht-gray-600);
+  border: 1px solid var(--ht-gray-200);
+  padding: 2px 6px;
+}
+
+/* ---- Buttons (generic) ---- */
+.btn-outline-dark {
+  border: 1px solid var(--ht-black);
+  color: var(--ht-black);
+  background: transparent;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 13px 30px;
+  transition: background 0.3s var(--ht-ease), color 0.3s var(--ht-ease);
+}
+.btn-outline-dark:hover {
+  background: var(--ht-black);
+  color: #fff;
+}
+
+.btn-filled-dark {
+  background: var(--ht-black);
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 13px 30px;
+  border: 1px solid var(--ht-black);
+  transition: background 0.3s var(--ht-ease), color 0.3s var(--ht-ease), opacity 0.3s;
+}
+.btn-filled-dark:hover {
+  background: #fff;
+  color: var(--ht-black);
+}
+
+/* ---- Filter Chips ---- */
+.filter-chip {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ht-gray-600);
+  padding-bottom: 6px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.25s var(--ht-ease), border-color 0.25s var(--ht-ease);
+  cursor: pointer;
+}
+.filter-chip:hover {
+  color: var(--ht-black);
+}
+.filter-chip.active {
+  color: var(--ht-black);
+  border-color: var(--ht-black);
+  font-weight: 600;
+}
+
+/* ---- Loader / skeleton ---- */
+.skeleton {
+  background: linear-gradient(100deg, #f0f0f0 30%, #f7f7f7 50%, #f0f0f0 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  background: var(--ht-black);
+  color: #ddd;
+}
+.site-footer a {
+  color: #bbb;
+  transition: color 0.25s var(--ht-ease);
+}
+.site-footer a:hover {
+  color: #fff;
+}
+.footer-heading {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.map-placeholder {
+  border: 1px solid rgba(255,255,255,0.15);
+  background: #111;
+  color: #777;
+}
+
+/* ---- Misc reveal animation ---- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ht-ease), transform 0.7s var(--ht-ease);
+}
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Mobile menu ---- */
+#mobileMenu {
+  transform: translateY(-100%);
+  transition: transform 0.35s var(--ht-ease);
+}
+#mobileMenu.open {
+  transform: translateY(0);
+}
+
+/* ---- Scrollbar (subtle) ---- */
+::-selection {
+  background: var(--ht-black);
+  color: #fff;
+}
+
+/* ---- Empty state ---- */
+.empty-state {
+  border: 1px dashed var(--ht-gray-200);
+}
+
+@media (max-width: 640px) {
+  .category-tile .tile-label {
+    padding: 10px 24px;
+    font-size: 0.72rem;
+    bottom: 18px;
+  }
+}

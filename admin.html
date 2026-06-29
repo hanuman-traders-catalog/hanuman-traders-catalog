@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel — Hanuman Traders</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { ink: '#0a0a0a' } } } }
+  </script>
+</head>
+<body class="bg-neutral-50 text-ink antialiased">
+  
+  <header class="bg-ink text-white p-5 flex justify-between items-center">
+    <h1 class="font-serif text-xl tracking-wide">HANUMAN TRADERS <span class="text-sm text-neutral-400">ADMIN</span></h1>
+    <button id="logoutBtn" class="hidden border border-neutral-600 px-4 py-2 text-xs uppercase tracking-wider hover:bg-white hover:text-ink transition">Logout</button>
+  </header>
+
+  <main class="max-w-3xl mx-auto p-5 md:p-8">
+    <div id="authSection" class="bg-white p-6 md:p-10 shadow-sm border border-neutral-200 rounded-sm mb-10 max-w-md mx-auto">
+      <h2 class="text-2xl font-serif mb-2">Sign In</h2>
+      <p class="text-neutral-500 mb-6 text-sm">Enter your credentials to manage the catalog.</p>
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider mb-1">Email</label>
+          <input type="email" id="loginEmail" class="w-full border border-neutral-300 p-3 outline-none focus:border-ink" required>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider mb-1">Password</label>
+          <input type="password" id="loginPassword" class="w-full border border-neutral-300 p-3 outline-none focus:border-ink" required>
+        </div>
+        <div id="loginError" class="text-red-600 text-sm hidden bg-red-50 p-3 border border-red-100"></div>
+        <button type="submit" class="w-full bg-ink text-white p-4 font-semibold uppercase tracking-wider hover:bg-neutral-800 transition">Sign In</button>
+      </form>
+    </div>
+
+    <div id="dashboardSection" class="hidden space-y-10">
+      
+      <div class="bg-white p-6 md:p-10 shadow-sm border border-neutral-200 rounded-sm">
+        <h2 class="text-xl font-serif mb-2">Add New Product</h2>
+        <p class="text-neutral-500 mb-6 text-sm">Upload up to 5 photos and fill in details.</p>
+        
+        <form id="addProductForm" class="space-y-5">
+          <div class="border-2 border-dashed border-neutral-300 p-8 text-center relative hover:bg-neutral-50 transition cursor-pointer">
+            <input type="file" id="productImages" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" multiple accept="image/jpeg, image/png" required>
+            <div class="text-neutral-500">
+              <svg class="mx-auto h-8 w-8 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+              <span class="block font-medium">Tap to select images (Hold Ctrl to select multiple)</span>
+            </div>
+            <div id="imagePreviewContainer" class="flex gap-3 justify-center mt-4 flex-wrap"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider mb-1">Product Name</label>
+              <input type="text" id="productName" class="w-full border border-neutral-300 p-3 outline-none focus:border-ink" required>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider mb-1">Price (₹)</label>
+              <input type="number" id="productPrice" class="w-full border border-neutral-300 p-3 outline-none focus:border-ink">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider mb-1">Category</label>
+              <select id="productCategory" class="w-full border border-neutral-300 p-3 outline-none focus:border-ink" required>
+                <option value="MEN">Men</option>
+                <option value="WOMEN">Women</option>
+                <option value="KIDS">Kids</option>
+                <option value="OTHERS">Other Items</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider mb-1">Colors (Comma Separated)</label>
+              <input type="text" id="productColors" placeholder="e.g., Red, Blue, Black" class="w-full border border-neutral-300 p-3 outline-none focus:border-ink">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider mb-1">Sizes (Comma Separated)</label>
+            <input type="text" id="productSizes" placeholder="e.g., S, M, L, XL or 36, 38, 40" class="w-full border border-neutral-300 p-3 outline-none focus:border-ink">
+          </div>
+
+          <div class="bg-neutral-50 p-4 border border-neutral-200 mt-2">
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input type="checkbox" id="isAvailable" class="w-5 h-5 accent-ink" checked>
+              <span class="font-semibold text-sm">Product is currently In Stock / Available</span>
+            </label>
+          </div>
+
+          <button type="submit" id="submitProductBtn" class="w-full bg-ink text-white p-4 font-semibold uppercase tracking-wider hover:bg-neutral-800 transition mt-4">
+            Add Product
+          </button>
+        </form>
+      </div>
+
+      <div class="bg-white p-6 md:p-10 shadow-sm border border-neutral-200 rounded-sm">
+        <div class="flex justify-between items-center mb-6 border-b border-neutral-100 pb-4">
+          <h2 class="text-xl font-serif">Current Inventory</h2>
+          <span id="productCount" class="text-sm text-neutral-500">0 items</span>
+        </div>
+        <div id="adminProductList" class="space-y-4"></div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
